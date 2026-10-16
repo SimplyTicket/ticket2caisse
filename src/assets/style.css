@@ -1,0 +1,107 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+@font-face {
+	font-family: 'Terminal Grotesque';
+    src: url("../assets/TerminalGrotesque-Regular.ttf") format("truetype");
+}
+
+body {
+	background-color: #030023;
+	color: #e9e3e3;
+	/* font-family: "CoralPixels", url("../assets/assets/CoralPixels-Regular.ttf") format("truetype"); */
+	font-family: 'Terminal Grotesque', system-ui, sans-serif;
+}
+
+.person {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: black;
+}
+
+.cool-border {
+  border-width: 20px;
+  border-image-slice: 192 192 192 192 fill;
+  border-image-width: 40px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: repeat repeat;
+    border-image-source: url("../assets/border_bg.png");
+
+  border-style: solid;
+}
+
+.move-btn {
+	background-color: transparent;
+	border: none;
+	color: rgb(233, 227, 227);
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+a {
+	color: rgba(233, 227, 227, 0.591);
+}
+
+.list-unstyled {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.w-stretch {
+	width: 100%;
+}
+
+#link-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+[circlePos] {
+	height: 15vh;
+	width: 15vw;
+	transition: opacity 0.5s ease-in-out;
+}
+
+#link-container a {
+	z-index: 10;
+	background-color: #03002372;
+	color: rgb(233, 227, 227);
+	border-radius: 5px;
+	width: max-content;
+}
+
+.light {
+	color: rgba(233, 227, 227, 0.591);
+}
+
+.rounded-1 {
+	border-radius: 5px;
+}
+
+.bg-back-50 {
+	background-color: #03002372;
+}
+
+.opacity-0 {
+	opacity: 0;
+}
+
+input {
+	background-color: transparent;
+	border: 1px solid rgb(233, 227, 227);
+	color: rgb(233, 227, 227);
+	padding: 5px;
+	border-radius: 5px;
+}
+
+button {
+	background-color: transparent;
+	border: 1px solid rgb(233, 227, 227);
+	color: rgb(233, 227, 227);
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
