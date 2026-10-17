@@ -3,6 +3,13 @@ import Arc from "./Arc.vue";
 import GlitchedArc, { type GlitchConfig } from "./GlitchedArc.vue";
 import Circle from "./Circle.vue";
 
+const props = withDefaults(
+  defineProps<{
+    size: string;
+  }>(),
+  {},
+);
+
 const glitchConfig: GlitchConfig = {
 	layers: 15,
 	intensity: 1,
@@ -13,16 +20,16 @@ const glitchConfig: GlitchConfig = {
 	animate: false,
 	dashPattern: "4 2 12 6 2 4",
 	numberOfGroups: 8,
-	jitterWidth: 0,
-	jitterOffset: 0,
+	jitterWidth: 20,
+	jitterOffset: 30,
 	speed: 0,
 };
 </script>
 
 <template>
 	<svg
-		width="150px"
-		height="150px"
+		:width="props.size"
+		:height="props.size"
 		viewBox="0 0 100 100"
 		xmlns="http://www.w3.org/2000/svg"
 	>
@@ -34,14 +41,14 @@ const glitchConfig: GlitchConfig = {
 			:radius="20"
 			:degree="174"
 			:width="10"
-			:degreeOffset="240"
+			:degreeOffset="20"
 			color="var(--color-primary)"
 			:class="10"
 			:glitch-config="glitchConfig"
 		/>
 		<GlitchedArc
 			:center="[50, 50]"
-			:radius="30"
+			:radius="28"
 			:degree="95"
 			:degreeOffset="0"
 			color="var(--color-secondary)"

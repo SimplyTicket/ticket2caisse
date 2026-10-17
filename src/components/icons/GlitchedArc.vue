@@ -17,6 +17,7 @@ export interface GlitchConfig {
 	speed: number;
 	mode: "random" | "alternating" | "progressive";
 	dashPattern?: string;
+  width: [number, number];
 	numberOfGroups: number;
 }
 
@@ -113,10 +114,10 @@ function generateLayers(): GlitchArc[] {
 		let degreeOffset: number;
 		const radiusOffset = sRand(-c.jitterRadius, c.jitterRadius) * c.intensity;
 		const degreeSpan = Math.max(2, sRand(3, c.jitterDegree) * c.intensity);
-		const widthVal = Math.max(
-			1,
-			(props.width ?? 5) + sRand(-c.jitterWidth, c.jitterWidth) * c.intensity,
-		);
+    const baseWidth = props.width ?? 5;
+    const rawWidth = baseWidth + sRand(-c.jitterWidth, c.jitterWidth) * c.intensity;
+
+    const widthVal = Math.min(baseWidth * 0.7, Math.max(baseWidth * 0.1, rawWidth));
 
 		switch (c.mode) {
 			case "random":
@@ -171,14 +172,25 @@ watch(
 </script>
 
 <template>
+	<!-- Base (clean) arc — no filter, optional gaps -->
+	<Arc
+		:center="props.center"
+		:radius="props.radius"
+		:degree="props.degree"
+		:degreeOffset="props.degreeOffset"
+		:color="props.color"
+		:width="props.width"
+		:stroke-dasharray="config.dashPattern || 'none'"
+	/>
+
 	<!-- Glitch layers -->
 	<template v-for="(arc, g) in config.numberOfGroups" :key="`group-${g}`">
 		<g
 			:class="`group-glitch-${g}`"
 			:style="{
-        '--glitch-duration': rand(1, 10) + 's',
-        '--offset-deg': rand(10, 50) + 'deg',
-        }"
+				'--glitch-duration': rand(1, 10) + 's',
+				'--offset-deg': rand(10, 50) + 'deg',
+			}"
 		>
 			<template
 				v-for="(arc, i) in glitchArcs.filter(
@@ -201,17 +213,6 @@ watch(
 			</template>
 		</g>
 	</template>
-
-	<!-- Base (clean) arc — no filter, optional gaps -->
-	<Arc
-		:center="props.center"
-		:radius="props.radius"
-		:degree="props.degree"
-		:degreeOffset="props.degreeOffset"
-		:color="props.color"
-		:width="props.width"
-		:stroke-dasharray="config.dashPattern || 'none'"
-	/>
 </template>
 
 <style scoped>
