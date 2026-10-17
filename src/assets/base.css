@@ -1,89 +1,150 @@
 @font-face {
-	font-family: 'Terminal Grotesque';
-    src: url("../assets/TerminalGrotesque-Regular.ttf") format("truetype");
+	font-family: "Terminal Grotesque";
+	src: url("../assets/TerminalGrotesque-Regular.ttf") format("truetype");
 }
 
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+	--vt-c-white: #ffffff;
+	--vt-c-white-soft: #f8f8f8;
+	--vt-c-white-mute: #f2f2f2;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+	--vt-c-black: #181818;
+	--vt-c-black-soft: #222222;
+	--vt-c-black-mute: #282828;
 
-  --vt-c-indigo: #2c3e50;
+	--vt-c-indigo: #2c3e50;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+	--vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+	--vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+	--vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+	--vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: #e9e3e3;
+	--vt-c-text-light-1: var(--vt-c-indigo);
+	--vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+	--vt-c-text-dark-1: var(--vt-c-white);
+	--vt-c-text-dark-2: #e9e3e3;
 
-  --light-color-primary: var(--vt-c-indigo);
-  --dark-color-primary: var(--vt-c-indigo);
+	/* ── Shades (unchanged) ── */
+	--color-primary-shades-900: #eafad1;
+	--color-primary-shades-800: #d4f6a2;
+	--color-primary-shades-700: #c0f471;
+	--color-primary-shades-600: #abf240;
+	--color-primary-shades-500: #96f20d;
+	--color-primary-shades-400: #79c408;
+	--color-primary-shades-300: #5b9504;
+	--color-primary-shades-200: #3d6501;
+	--color-primary-shades-100: #1f3300;
+
+  --color-secondary-shades-900: #f7d4e9;
+  --color-secondary-shades-800: #f1a7d3;
+  --color-secondary-shades-700: #ec79be;
+  --color-secondary-shades-600: #e84aa9;
+  --color-secondary-shades-500: #e61994;
+  --color-secondary-shades-400: #ba1277;
+  --color-secondary-shades-300: #8e0b5a;
+  --color-secondary-shades-200: #60063c;
+  --color-secondary-shades-100: #30031e;
+
+	/* ── Light / Dark values (single source of truth) ── */
+
+	/* ── Light / Dark values (single source of truth) ── */
+
+/* ── Light / Dark values (single source of truth) ── */
+
+/* Primary = vert néon → le 500/600 est déjà très saturé, c'est LE range neon */
+--light-color-primary:        var(--color-primary-shades-400);  /* #79c408 : contraste sur blanc */
+--dark-color-primary:         var(--color-primary-shades-500);  /* #96f20d : MAXIMUM néon sur sombre */
+
+/* Secondary = pink/magenta → 500 est du hot pink pur, très néon */
+--light-color-secondary:      var(--color-secondary-shades-400);  /* #ba1277 : lisible sur clair */
+--dark-color-secondary:       var(--color-secondary-shades-500);  /* #e61994 : hot pink néon */
+
+/* Primary-mute → reste doux, c'est un fond */
+--light-color-primary-mute:   var(--color-primary-shades-900);
+--dark-color-primary-mute:    var(--color-primary-shades-100);
+
+	/* ── NEW: generic light/dark for all semantic colors ── */
+	--light-color-background: var(--vt-c-white);
+	--dark-color-background: var(--vt-c-black);
+
+	--light-color-background-soft: var(--vt-c-white-soft);
+	--dark-color-background-soft: var(--vt-c-black-soft);
+
+	--light-color-background-mute: var(--vt-c-white-mute);
+	--dark-color-background-mute: var(--vt-c-black-mute);
+
+	--light-color-border: var(--vt-c-divider-light-2);
+	--dark-color-border: var(--vt-c-divider-dark-2);
+
+	--light-color-border-hover: var(--vt-c-divider-light-1);
+	--dark-color-border-hover: var(--vt-c-divider-dark-1);
+
+	--light-color-heading: var(--vt-c-text-light-1);
+	--dark-color-heading: var(--vt-c-text-dark-1);
+
+	--light-color-text: var(--vt-c-text-light-1);
+	--dark-color-text: var(--vt-c-text-dark-2);
 }
 
-/* semantic color variables for this project */
+/* ── Light (default) ── */
 :root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+	--color-background: var(--light-color-background);
+	--color-background-soft: var(--light-color-background-soft);
+	--color-background-mute: var(--light-color-background-mute);
 
-  --color-primary: var(--light-color-primary);
+	--color-primary: var(--light-color-primary);
+	--color-secondary: var(--light-color-secondary);
+	--color-primary-mute: var(--light-color-primary-mute);
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
+	--color-border: var(--light-color-border);
+	--color-border-hover: var(--light-color-border-hover);
 
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
+	--color-heading: var(--light-color-heading);
+	--color-text: var(--light-color-text);
 
-  --section-gap: 160px;
+	--section-gap: 160px;
 }
 
+/* ── Dark ── */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+	:root {
+		--color-background: var(--dark-color-background);
+		--color-background-soft: var(--dark-color-background-soft);
+		--color-background-mute: var(--dark-color-background-mute);
 
-    --color-primary: var(--dark-color-primary);
+		--color-primary: var(--dark-color-primary);
+		--color-secondary: var(--dark-color-secondary);
+		--color-primary-mute: var(--dark-color-primary-mute);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
+		--color-border: var(--dark-color-border);
+		--color-border-hover: var(--dark-color-border-hover);
 
-
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
+		--color-heading: var(--dark-color-heading);
+		--color-text: var(--dark-color-text);
+	}
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  font-weight: normal;
+	box-sizing: border-box;
+	margin: 0;
+	font-weight: normal;
 }
 
 body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
-	font-family: 'Terminal Grotesque', system-ui, sans-serif;
-  
-  line-height: 1.6;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
+	color: var(--color-text);
+	background: var(--color-background);
+	transition:
+		color 0.5s,
+		background-color 0.5s;
+	font-family: "Terminal Grotesque", system-ui, sans-serif;
+
+	line-height: 1.6;
+	font-size: 15px;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
