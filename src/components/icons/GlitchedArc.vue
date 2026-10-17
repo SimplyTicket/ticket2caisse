@@ -2,9 +2,6 @@
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import Arc from "./Arc.vue";
 
-// ─────────────────────────────────────────────
-// Types
-// ─────────────────────────────────────────────
 export interface GlitchConfig {
 	layers: number;
 	intensity: number;
@@ -67,6 +64,7 @@ const DEFAULTS: GlitchConfig = {
 	speed: 120,
 	mode: "random",
 	numberOfGroups: 1,
+  width: [5, 10]
 };
 
 const config = computed<GlitchConfig>(() => ({
@@ -105,6 +103,7 @@ function generateLayers(): GlitchArc[] {
 	// Fresh PRNG from the current seed on every call.
 	// Same seed → same sequence → stable layout across re-renders.
 	const rng = mulberry32(currentSeed);
+  
 	const sRand = (min: number, max: number) => rng() * (max - min) + min;
 
 	const spread = Math.min(180, 40 + c.jitterOffset * c.intensity);

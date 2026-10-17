@@ -23,6 +23,7 @@ const glitchConfig: GlitchConfig = {
 	jitterWidth: 20,
 	jitterOffset: 30,
 	speed: 0,
+	width: [5, 10]
 };
 </script>
 

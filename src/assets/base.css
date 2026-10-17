@@ -20,27 +20,32 @@
 
 @font-face {
 	font-family: "Closeness-Outline-Filled";
-	src: url("../assets/closeness/Closeness-Outline-Filled.ttf") format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Filled.ttf")
+		format("truetype");
 }
 
 @font-face {
 	font-family: "Closeness-Outline-Filled-Italic";
-	src: url("../assets/closeness/Closeness-Outline-Filled-Italic.ttf") format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Filled-Italic.ttf")
+		format("truetype");
 }
 
 @font-face {
 	font-family: "Closeness-Outline-Gradient";
-	src: url("../assets/closeness/Closeness-Outline-Gradient.ttf") format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Gradient.ttf")
+		format("truetype");
 }
 
 @font-face {
 	font-family: "Closeness-Outline-Gradient-Italic";
-	src: url("../assets/closeness/Closeness-Outline-Gradient-Italic.ttf") format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Gradient-Italic.ttf")
+		format("truetype");
 }
 
 @font-face {
 	font-family: "Closeness-Outline-Italic";
-	src: url("../assets/closeness/Closeness-Outline-Italic.ttf") format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Italic.ttf")
+		format("truetype");
 }
 
 /* color palette from <https://github.com/vuejs/theme> */
@@ -76,33 +81,41 @@
 	--color-primary-shades-200: #3d6501;
 	--color-primary-shades-100: #1f3300;
 
-  --color-secondary-shades-900: #f7d4e9;
-  --color-secondary-shades-800: #f1a7d3;
-  --color-secondary-shades-700: #ec79be;
-  --color-secondary-shades-600: #e84aa9;
-  --color-secondary-shades-500: #e61994;
-  --color-secondary-shades-400: #ba1277;
-  --color-secondary-shades-300: #8e0b5a;
-  --color-secondary-shades-200: #60063c;
-  --color-secondary-shades-100: #30031e;
+	--color-secondary-shades-900: #f7d4e9;
+	--color-secondary-shades-800: #f1a7d3;
+	--color-secondary-shades-700: #ec79be;
+	--color-secondary-shades-600: #e84aa9;
+	--color-secondary-shades-500: #e61994;
+	--color-secondary-shades-400: #ba1277;
+	--color-secondary-shades-300: #8e0b5a;
+	--color-secondary-shades-200: #60063c;
+	--color-secondary-shades-100: #30031e;
 
 	/* ── Light / Dark values (single source of truth) ── */
 
 	/* ── Light / Dark values (single source of truth) ── */
 
-/* ── Light / Dark values (single source of truth) ── */
+	/* ── Light / Dark values (single source of truth) ── */
 
-/* Primary = vert néon → le 500/600 est déjà très saturé, c'est LE range neon */
---light-color-primary:        var(--color-primary-shades-400);  /* #79c408 : contraste sur blanc */
---dark-color-primary:         var(--color-primary-shades-500);  /* #96f20d : MAXIMUM néon sur sombre */
+	/* Primary = vert néon → le 500/600 est déjà très saturé, c'est LE range neon */
+	--light-color-primary: var(
+		--color-primary-shades-400
+	); /* #79c408 : contraste sur blanc */
+	--dark-color-primary: var(
+		--color-primary-shades-500
+	); /* #96f20d : MAXIMUM néon sur sombre */
 
-/* Secondary = pink/magenta → 500 est du hot pink pur, très néon */
---light-color-secondary:      var(--color-secondary-shades-400);  /* #ba1277 : lisible sur clair */
---dark-color-secondary:       var(--color-secondary-shades-500);  /* #e61994 : hot pink néon */
+	/* Secondary = pink/magenta → 500 est du hot pink pur, très néon */
+	--light-color-secondary: var(
+		--color-secondary-shades-400
+	); /* #ba1277 : lisible sur clair */
+	--dark-color-secondary: var(
+		--color-secondary-shades-500
+	); /* #e61994 : hot pink néon */
 
-/* Primary-mute → reste doux, c'est un fond */
---light-color-primary-mute:   var(--color-primary-shades-900);
---dark-color-primary-mute:    var(--color-primary-shades-100);
+	/* Primary-mute → reste doux, c'est un fond */
+	--light-color-primary-mute: var(--color-primary-shades-900);
+	--dark-color-primary-mute: var(--color-primary-shades-100);
 
 	/* ── NEW: generic light/dark for all semantic colors ── */
 	--light-color-background: var(--vt-c-white);
@@ -190,18 +203,106 @@ body {
 }
 
 /* Base */
-.font-closeness   { font-family: "Closeness", system-ui, -apple-system, sans-serif; }
+.font-closeness {
+	font-family:
+		"Closeness",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
 
 /* Standard Variants */
-.c-bold           { font-family: "Closeness-Bold", system-ui, -apple-system, sans-serif; }
-.c-bold-italic    { font-family: "Closeness-Bold-Italic", system-ui, -apple-system, sans-serif; }
+.c-bold {
+	font-family:
+		"Closeness-Bold",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
+.c-bold-italic {
+	font-family:
+		"Closeness-Bold-Italic",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
 
 /* Display/Outline Variants */
-.c-outline        { font-family: "Closeness-Outline", system-ui, -apple-system, sans-serif; }
-.c-outline-filled { font-family: "Closeness-Outline-Filled", system-ui, -apple-system, sans-serif; }
-.c-outline-italic { font-family: "Closeness-Outline-Italic", system-ui, -apple-system, sans-serif; }
+.c-outline {
+	font-family:
+		"Closeness-Outline",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
+.c-outline-filled {
+	font-family:
+		"Closeness-Outline-Filled",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
+.c-outline-italic {
+	font-family:
+		"Closeness-Outline-Italic",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
 
 /* Gradient Variants */
-.c-outline-gradient       { font-family: "Closeness-Outline-Gradient", system-ui, -apple-system, sans-serif; }
-.c-outline-gradient-italic{ font-family: "Closeness-Outline-Gradient-Italic", system-ui, -apple-system, sans-serif; }
+.c-outline-gradient {
+	font-family:
+		"Closeness-Outline-Gradient",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
+.c-outline-gradient-italic {
+	font-family:
+		"Closeness-Outline-Gradient-Italic",
+		system-ui,
+		-apple-system,
+		sans-serif;
+}
 
+.text-xs {
+	font-size: 0.75rem;
+	line-height: 1.25;
+}
+.text-sm {
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+.text-md {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+.text-lg {
+	font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+	line-height: 1.5;
+}
+.text-xl {
+	font-size: clamp(1.5rem, 1.1rem + 0.75vw, 1.75rem);
+	line-height: 1.4285714286;
+}
+.text-2xl {
+	font-size: clamp(1.75rem, 1.3rem + 1vw, 2rem);
+	line-height: 1.3333333333;
+}
+.text-3xl {
+	font-size: clamp(2rem, 1.5rem + 1.875vw, 2.5rem);
+	line-height: 1.2;
+}
+.text-4xl {
+	font-size: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+	line-height: 1.1;
+}
+.text-5xl {
+	font-size: clamp(3rem, 2rem + 5vw, 4rem);
+	line-height: 1.1;
+}
+.text-6xl {
+	font-size: clamp(3.75rem, 2.5rem + 6.25vw, 5rem);
+	line-height: 1;
+}
