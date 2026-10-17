@@ -1,6 +1,46 @@
 @font-face {
-	font-family: "Terminal Grotesque";
-	src: url("../assets/TerminalGrotesque-Regular.ttf") format("truetype");
+	font-family: "Closeness";
+	src: url("../assets/closeness/Closeness.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Closeness-Bold";
+	src: url("../assets/closeness/Closeness-Bold.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Closeness-Bold-Italic";
+	src: url("../assets/closeness/Closeness-Bold-Italic.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Closeness-Outline";
+	src: url("../assets/closeness/Closeness-Outline.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Closeness-Outline-Filled";
+	src: url("../assets/closeness/Closeness-Outline-Filled.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Closeness-Outline-Filled-Italic";
+	src: url("../assets/closeness/Closeness-Outline-Filled-Italic.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Closeness-Outline-Gradient";
+	src: url("../assets/closeness/Closeness-Outline-Gradient.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Closeness-Outline-Gradient-Italic";
+	src: url("../assets/closeness/Closeness-Outline-Gradient-Italic.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Closeness-Outline-Italic";
+	src: url("../assets/closeness/Closeness-Outline-Italic.ttf") format("truetype");
 }
 
 /* color palette from <https://github.com/vuejs/theme> */
@@ -140,7 +180,7 @@ body {
 	transition:
 		color 0.5s,
 		background-color 0.5s;
-	font-family: "Terminal Grotesque", system-ui, sans-serif;
+	font-family: "Closeness", system-ui, sans-serif;
 
 	line-height: 1.6;
 	font-size: 15px;
@@ -148,3 +188,20 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+/* Base */
+.font-closeness   { font-family: "Closeness", system-ui, -apple-system, sans-serif; }
+
+/* Standard Variants */
+.c-bold           { font-family: "Closeness-Bold", system-ui, -apple-system, sans-serif; }
+.c-bold-italic    { font-family: "Closeness-Bold-Italic", system-ui, -apple-system, sans-serif; }
+
+/* Display/Outline Variants */
+.c-outline        { font-family: "Closeness-Outline", system-ui, -apple-system, sans-serif; }
+.c-outline-filled { font-family: "Closeness-Outline-Filled", system-ui, -apple-system, sans-serif; }
+.c-outline-italic { font-family: "Closeness-Outline-Italic", system-ui, -apple-system, sans-serif; }
+
+/* Gradient Variants */
+.c-outline-gradient       { font-family: "Closeness-Outline-Gradient", system-ui, -apple-system, sans-serif; }
+.c-outline-gradient-italic{ font-family: "Closeness-Outline-Gradient-Italic", system-ui, -apple-system, sans-serif; }
+
