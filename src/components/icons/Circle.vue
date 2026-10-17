@@ -2,7 +2,7 @@
 const props = withDefaults(
 	defineProps<{
 		center: [number, number];
-		radius?: number;
+		radius: number;
 		color?: string;
 	}>(),
 	{
