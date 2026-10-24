@@ -2,15 +2,19 @@
 import Logo from "../components/icons/Logo.vue";
 import Button from "../components/Button.vue";
 import { ref } from "vue";
+import Corrupted from "@/components/CorruptedPixel.vue";
+import CorruptedCore from "@/components/CorruptedCore.vue";
 
 const btnTxt = ref("START");
 const disable = ref(false);
+const numberOfPixel = ref(0)
 function start() {
 	// fake loading
 	disable.value = true;
 
 	setInterval(() => {
 		btnTxt.value += ".";
+		numberOfPixel.value ++
 		btnTxt.value = btnTxt.value.replace("......", "");
 	}, 500);
 }
@@ -31,11 +35,12 @@ function start() {
 			>
 				<div class="landing-text text-center">
 					<h1 class="c-bold">Bienvenue sur Ticket2Caisse</h1>
-					<p>Miaou miaou miaou</p>
+					<p>Flasing lights waring</p>
 				</div>
 			</div>
 		</div>
 		<div class="center">
+			<CorruptedCore :pixel-size="50" center-top="50%" center-left="50%" :radius="3" :number-of-pixel="numberOfPixel" :seed="13513" />
 			<Button :text="btnTxt" @click="start" :disabled="disable" />
 		</div>
 	</main>
@@ -46,10 +51,14 @@ function start() {
 	position: absolute;
 	top: 0;
 	display: flex;
-	justify-content: center; /* Centre horizontalement */
-	align-items: center; /* Centre verticalement */
-	min-height: 100%; /* Occupe toute la hauteur de la vue */
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
 	min-width: 100%;
-	margin: 0; /* Supprime la marge par défaut du <body> */
+	margin: 0;
+}
+
+.landing-text {
+	padding-top: 35vh;
 }
 </style>
