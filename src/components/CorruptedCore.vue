@@ -47,8 +47,6 @@ watch(
 <style lang="css">
 .container {
 	position: absolute;
-	top: 0;
-	left: 0;
 }
 
 .holder {
