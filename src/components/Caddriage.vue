@@ -12,7 +12,7 @@ const props = withDefaults(
 const width = ref(window.innerWidth);
 const height = ref(document.documentElement.scrollHeight);
 
-const col = ref(width.value < 768 ? 6 : 12);
+const col = ref(width.value < 768 ? 7 : 13);
 
 // 2. Calculate spacing based on (col - 1) to center the last one on the edge
 const spacing = ref((width.value) / (col.value - 1));
@@ -25,7 +25,7 @@ const grid = ref(
         .map(() => Array(col.value).fill(null)),
 );
 
-
+const cellVisible = ref(0)
 
 function onResize() {
     const colOld = col.value;
@@ -34,7 +34,7 @@ function onResize() {
 		height.value = document.documentElement.scrollHeight;
 
     // Update columns based on breakpoint
-    col.value = width.value < 768 ? 6 : 12;
+    col.value = width.value < 768 ? 7 : 13;
 
     // Recalculate spacing: Width divided by intervals (col - 1)
     // If you want the first one ALSO half visible, use: width / col
@@ -49,6 +49,9 @@ function onResize() {
 
 onMounted(() => {
     window.addEventListener("resize", onResize);
+	setTimeout(() => {
+		cellVisible.value = 1
+	}, 500)
 });
 
 onUnmounted(() => {
@@ -68,6 +71,9 @@ onUnmounted(() => {
 				:style="{
 					top: `${spacing * rowIndex}px`,
 					left: `${spacing * cellIndex}px`,
+					// opacity: cellVisible ? 1 : 0,
+					transform: `translate(-20px, -20px) rotate(${cellVisible ? 0 : 45}deg)`,
+					transitionDelay: `${(rowIndex + cellIndex) * 50}ms, ${((rowIndex + cellIndex) * 80)}ms`
 				}"
 			>
 				<svg class="grid-svg">
@@ -111,11 +117,14 @@ onUnmounted(() => {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+
 }
 
 .cell {
-	transform: translate(-20px, -20px);
+	transition-duration: 500ms, 500ms;
+	transition-property: opacity, transform;
 	height: 40px;
 	width: 40px;
 }
+
 </style>

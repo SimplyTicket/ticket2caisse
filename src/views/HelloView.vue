@@ -12,8 +12,8 @@ import Logo from "@/components/icons/Logo.vue";
 	<div class="position-relative">
 		<div>
 			<CaddriBox
-				:position="{ x1: 1, y1: 1, x2: 10, y2: 2 }"
-				:position-mobile="{ x1: 1, y1: 1, x2: 4, y2: 2 }"
+				:position="{ x: 1, y: 1, width: 10, height: 1 }"
+				:position-mobile="{ x: 1, y: 1, width: 4, height: 1 }"
 			>
 				<div class="center">
 					<h1>The fuck is that ?</h1>
@@ -22,8 +22,8 @@ import Logo from "@/components/icons/Logo.vue";
 
 			<CaddriBox
 				class="p-2"
-				:position="{ x1: 1, y1: 3, x2: 7, y2: 7 }"
-				:position-mobile="{ x1: 0, y1: 3, x2: 5, y2: 9 }"
+				:position="{ x: 1, y: 3, width: 7, height: 5, fitContent:true }"
+				:position-mobile="{ x: 0, y: 3, width: 6, height: 6 }"
 			>
 				<div
 					class="p-2 d-flex flex-column justify-content-between h-100 max-h-10-lines"
@@ -74,10 +74,10 @@ import Logo from "@/components/icons/Logo.vue";
 			</CaddriBox>
 
 			<CaddriBox
-				:position="{ x1: 8, y1: 3, x2: 10, y2: 7 }"
-				:position-mobile="{ x1: 1, y1: 10, x2: 4, y2: 12 }"
+				:position="{ x: 9, y: 3, height: 5, width: 2 }"
+				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }"
 			>
-				<div class="d-flex justify-content-center text-center">
+				<div class="d-flex c-bold justify-content-center text-center">
 					Imagin there will be button and links here
 				</div>
 				<Francophonering/>
@@ -91,8 +91,20 @@ import Logo from "@/components/icons/Logo.vue";
 	</div>
 </template>
 
-<style lang="css">
+<style lang="css" scoped>
 .max-h-10-lines {
 	max-height: 20lh;
 }
+.center {
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+	min-width: 100%;
+	margin: 0;
+}
+
 </style>

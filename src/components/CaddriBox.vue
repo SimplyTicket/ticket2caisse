@@ -3,33 +3,47 @@ import { onMounted, onUnmounted, ref } from "vue";
 
 const props = withDefaults(
 	defineProps<{
-		position: { x1: number; y1: number; x2: number; y2: number };
-		positionMobile: { x1: number; y1: number; x2: number; y2: number };
+		position: { x: number; y: number; width: number; height: number, fitContent?: boolean | null };
+		positionMobile: { x: number; y: number; width: number; height: number };
 	}>(),
 	{},
 );
 
 // 1. Use window.innerWidth directly (Logical CSS pixels)
 const ScreenWidth = ref(window.innerWidth);
-const col = ref(ScreenWidth.value < 768 ? 6 : 12);
+const col = ref(ScreenWidth.value < 768 ? 7 : 13);
 const spacing = ref(ScreenWidth.value / (col.value - 1));
-const pixelsRatio = window.devicePixelRatio
+const blockRef = ref<HTMLElement | null>(null);
+
 
 const width = ref();
 const height = ref();
 const position = ref(props.position);
 function onResize() {
 	ScreenWidth.value = window.innerWidth;
-	col.value = ScreenWidth.value < 768 ? 6 : 12;
+	col.value = ScreenWidth.value < 768 ? 7 : 13;
 	spacing.value = ScreenWidth.value / (col.value - 1);
 
 	position.value = col.value == 6 ? props.positionMobile : props.position;
-	width.value = position.value.x2 - position.value.x1;
-	height.value = position.value.y2 - position.value.y1;
+	width.value = position.value.width;
+
+	if (props.position.fitContent) {
+		if (!blockRef.value) return;
+
+		const minHeight = blockRef.value.scrollHeight
+		console.log(Math.trunc(minHeight / spacing.value) + 1)
+		height.value = Math.trunc(minHeight / spacing.value) + 1
+		console.log(height.value)
+
+	} else {
+		height.value = position.value.height;
+	}
+
 }
 
 onMounted(() => {
 	window.addEventListener("resize", onResize);
+	onResize()
 });
 
 onUnmounted(() => {
@@ -40,16 +54,15 @@ onResize();
 </script>
 
 <template>
-	<div
-		class="block fg-contrast-primary"
-		:style="{
-			marginTop: `${position.y1 * spacing - 3}px`,
-			marginLeft: `${position.x1 * spacing - 3}px`,
-			width: `${width * spacing + 6.4}px`,
-			height: `${height * spacing + 6.4}px`,
-		}"
-	>
-		<slot></slot>
+	<div class="block fg-contrast-primary" :style="{
+		marginTop: `${position.y * spacing - 3}px`,
+		marginLeft: `${position.x * spacing - 3}px`,
+		width: `${width * spacing + 6.4}px`,
+		height: `${height * spacing + 6.4}px`,
+	}">
+		<div class="content" ref="blockRef">
+			<slot></slot>
+		</div>
 	</div>
 </template>
 
@@ -59,6 +72,10 @@ onResize();
 	background-color: var(--color-primary);
 	padding: 6px;
 
+}
+
+.content {
+	height: 100%;
 }
 
 /* Chrome, Safari, Edge */
