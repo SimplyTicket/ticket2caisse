@@ -38,15 +38,6 @@ function start() {
 				size="450px"
 				class="position-absolute top-0 start-0 translate-middle"
 			/>
-			<!-- Content sits on top -->
-			<div
-				class="landing d-flex align-items-center justify-content-center position-relative z-1"
-			>
-				<div class="landing-text text-center">
-					<h1 class="c-bold">Bienvenue sur Ticket2Caisse</h1>
-					<p>Flasing lights waring</p>
-				</div>
-			</div>
 		</div>
 		<div class="center">
 			<CorruptedPixel
@@ -56,6 +47,15 @@ function start() {
 				:positionX="2"
 				:position-y="1"
 			/>
+
+			<div
+				class="landing d-flex align-items-center justify-content-center position-relative z-1 pb-5"
+			>
+				<div class="landing-text text-center">
+					<h1 class="c-bold">Bienvenue sur Ticket2Caisse</h1>
+					<p>Flasing lights waring</p>
+				</div>
+			</div>
 
 			<div class="parent-wrapper" style="position: relative">
 				<CorruptedCore
@@ -69,11 +69,13 @@ function start() {
 			</div>
 			<Button :text="btnTxt" @click="start" :disabled="disable" />
 		</div>
-		<div id="log-container" class="w-25 p-3 position-absolute bottom-0 end-0">oui</div>
+		<div id="log-container" class="w-25 p-3 position-absolute bottom-0 end-0">
+			oui
+		</div>
 	</main>
 </template>
 
-<style lang="css">
+<style lang="css" scoped>
 .center {
 	position: absolute;
 	top: 0;
@@ -84,10 +86,6 @@ function start() {
 	min-height: 100%;
 	min-width: 100%;
 	margin: 0;
-}
-
-.landing-text {
-	padding-top: 35vh;
 }
 
 #log-container {

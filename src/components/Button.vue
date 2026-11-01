@@ -36,6 +36,7 @@ const emit = defineEmits(['click'])
 <style scoped>
 button {
 	cursor: pointer;
+	color: black;
 
 	background: none;
 	border: none;
