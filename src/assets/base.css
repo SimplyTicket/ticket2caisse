@@ -141,7 +141,7 @@
 }
 
 /* ── Light (default) ── */
-:root {
+/* :root {
 	--color-background: var(--light-color-background);
 	--color-background-soft: var(--light-color-background-soft);
 	--color-background-mute: var(--light-color-background-mute);
@@ -157,10 +157,10 @@
 	--color-text: var(--light-color-text);
 
 	--section-gap: 160px;
-}
+} */
 
 /* ── Dark ── */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) { */
 	:root {
 		--color-background: var(--dark-color-background);
 		--color-background-soft: var(--dark-color-background-soft);
@@ -176,7 +176,7 @@
 		--color-heading: var(--dark-color-heading);
 		--color-text: var(--dark-color-text);
 	}
-}
+/* } */
 
 *,
 *::before,
@@ -310,3 +310,4 @@ body {
 .fg-contrast-primary {
   color: black;
 }
+

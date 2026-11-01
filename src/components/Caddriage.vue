@@ -31,7 +31,8 @@ function onResize() {
     const colOld = col.value;
 
     width.value = window.innerWidth;
-    
+		height.value = document.documentElement.scrollHeight;
+
     // Update columns based on breakpoint
     col.value = width.value < 768 ? 6 : 12;
 
@@ -40,7 +41,7 @@ function onResize() {
     spacing.value = (width.value ) / (col.value - 1)
 
     if (col.value != colOld) {
-        grid.value = Array(5)
+        grid.value = Array(Math.round(height.value / spacing.value) + 1)
             .fill(null)
             .map(() => Array(col.value).fill(null));
     }

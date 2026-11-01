@@ -41,12 +41,12 @@ onResize();
 
 <template>
 	<div
-		class="block"
+		class="block fg-contrast-primary"
 		:style="{
-			marginTop: `${position.y1 * spacing - 3 * pixelsRatio}px`,
-			marginLeft: `${position.x1 * spacing - 3 * pixelsRatio}px`,
-			width: `${width * spacing + 6.4 * pixelsRatio}px`,
-			height: `${height * spacing + 6.4 * pixelsRatio}px`,
+			marginTop: `${position.y1 * spacing - 3}px`,
+			marginLeft: `${position.x1 * spacing - 3}px`,
+			width: `${width * spacing + 6.4}px`,
+			height: `${height * spacing + 6.4}px`,
 		}"
 	>
 		<slot></slot>
@@ -57,7 +57,7 @@ onResize();
 .block {
 	position: absolute;
 	background-color: var(--color-primary);
-
+	padding: 6px;
 
 }
 
