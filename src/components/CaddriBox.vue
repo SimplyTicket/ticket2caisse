@@ -23,6 +23,11 @@ const width = ref();
 const height = ref();
 const position = ref(props.position);
 const isDisplayed = ref(0)
+
+const emit = defineEmits<{
+	(e: 'update-height', payload: { x: number; y: number; width: number; height: number, totalHeight:number }): void
+}>();
+
 function onResize() {
 	ScreenWidth.value = window.innerWidth;
 	col.value = ScreenWidth.value < 768 ? 7 : 13;
@@ -46,7 +51,7 @@ function onResize() {
 	} else {
 		height.value = position.value.height;
 	}
-
+	emit('update-height', { height: height.value, x: position.value.x, y: position.value.y, width: position.value.width, totalHeight: height.value + position.value.x })
 }
 
 onMounted(async () => {
@@ -55,6 +60,8 @@ onMounted(async () => {
 	await nextTick();
 	setTimeout(() => {
 		isDisplayed.value = 1;
+		onResize()
+
 	}, props.displayDelay);
 });
 
@@ -62,7 +69,6 @@ onUnmounted(() => {
 	window.removeEventListener("resize", onResize);
 });
 
-onResize();
 </script>
 
 <template>

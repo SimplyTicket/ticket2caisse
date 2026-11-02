@@ -1,8 +1,29 @@
 <script setup lang="ts">
 import Caddriage from "@/components/Caddriage.vue";
 import CaddriBox from "@/components/CaddriBox.vue";
+import CorruptedCore from "@/components/CorruptedCore.vue";
 import Francophonering from "@/components/Francophonering.vue";
 import Logo from "@/components/icons/Logo.vue";
+import { onMounted, ref, watch } from "vue";
+
+const folowHeight = ref({ box1: { x: 0, y: 0, width: 0, height: 0 }, box2: { x: 0, y: 0, width: 0, height: 0 }, box3: { x: 0, y: 0, width: 0, height: 0 } })
+
+watch(folowHeight, () => {
+	console.log(folowHeight)
+})
+
+const numberOfPixel = ref(0)
+const seed = ref(0)
+
+onMounted(() => {
+	setInterval(()=>{
+		numberOfPixel.value ++
+		if (numberOfPixel.value > 35) {
+			seed.value ++
+			numberOfPixel.value = 5
+		}
+	}, 50)
+})
 </script>
 
 <template>
@@ -11,23 +32,27 @@ import Logo from "@/components/icons/Logo.vue";
 	</div>
 	<div class="position-relative">
 		<div>
-			<CaddriBox
-				:position="{ x: 1, y: 1, width: 10, height: 1 }"
+			<CaddriBox id="box-1" :position="{ x: 1, y: 1, width: 10, height: 1 }"
 				:position-mobile="{ x: 1, y: 1, width: 4, height: 1 }"
-			>
+				@update-height="(data) => { folowHeight.box1 = data }">
 				<div class="center">
 					<h1>The fuck is that ?</h1>
 				</div>
+				<CorruptedCore
+					:pixel-size="25"
+					center-top="50%"
+					center-left="45%"
+					:radius="8"
+					:number-of-pixel="numberOfPixel"
+					:seed="seed"
+				/>
 			</CaddriBox>
 
-			<CaddriBox
-				class="p-2"
-				:position="{ x: 1, y: 3, width: 7, height: 5, fitContent:true }"
+			<CaddriBox id="box-2" class="p-2"
+				:position="{ x: 1, y: folowHeight.box1.height + folowHeight.box1.x + 1, width: 7, height: 5, fitContent: true }"
 				:position-mobile="{ x: 0, y: 3, width: 6, height: 6 }"
-			>
-				<div
-					class="p-2 d-flex flex-column justify-content-between h-100 max-h-10-lines"
-				>
+				@update-height="(data) => { folowHeight.box2 = data }">
+				<div class="p-2 d-flex flex-column justify-content-between h-100 max-h-10-lines">
 					<p class="">
 						First thing thanks for stopping by, I'm happy someone see this ;-)
 					</p>
@@ -73,21 +98,16 @@ import Logo from "@/components/icons/Logo.vue";
 				</div>
 			</CaddriBox>
 
-			<CaddriBox
-				:position="{ x: 9, y: 3, height: 5, width: 2 }"
-				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }"
-			>
+			<CaddriBox id="box-3" :position="{ x: 9, y: 3, height: folowHeight.box2.height, width: 2 }"
+				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }">
 				<div class="d-flex c-bold justify-content-center text-center">
 					Imagin there will be button and links here
 				</div>
-				<Francophonering/>
+				<Francophonering />
 			</CaddriBox>
 		</div>
 
-		<Logo
-			size="450px"
-			class="position-absolute top-0 start-0 translate-middle"
-		/>
+		<Logo size="450px" class="position-absolute top-0 start-0 translate-middle" />
 	</div>
 </template>
 
@@ -95,6 +115,7 @@ import Logo from "@/components/icons/Logo.vue";
 .max-h-10-lines {
 	max-height: 20lh;
 }
+
 .center {
 	position: absolute;
 	top: 0;
@@ -106,5 +127,4 @@ import Logo from "@/components/icons/Logo.vue";
 	min-width: 100%;
 	margin: 0;
 }
-
 </style>
