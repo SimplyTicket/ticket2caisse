@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 
 const props = withDefaults(
     defineProps<{
@@ -47,11 +47,14 @@ function onResize() {
     }
 }
 
-onMounted(() => {
-    window.addEventListener("resize", onResize);
-	setTimeout(() => {
-		cellVisible.value = 1
-	}, 500)
+
+onMounted(async () => {
+  window.addEventListener("resize", onResize);
+  
+  await nextTick();
+  setTimeout(() => {
+    cellVisible.value = 1;
+  }, 500);
 });
 
 onUnmounted(() => {
@@ -105,7 +108,7 @@ onUnmounted(() => {
 <style scoped>
 .grid-container {
 	position: absolute;
-	min-height: 100vh;
+	min-height: 130vh;
 	width: 100vw;
 	overflow: hidden;
 	pointer-events: none;
