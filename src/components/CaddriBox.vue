@@ -30,7 +30,11 @@ function onResize() {
 	if (props.position.fitContent) {
 		if (!blockRef.value) return;
 
-		const minHeight = blockRef.value.scrollHeight
+		const child = blockRef.value.querySelector('div');
+		const element = child ? child : blockRef.value;
+
+
+		const minHeight = element.scrollHeight
 		console.log(Math.trunc(minHeight / spacing.value) + 1)
 		height.value = Math.trunc(minHeight / spacing.value) + 1
 		console.log(height.value)
