@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from "@/components/Button.vue";
 import Caddriage from "@/components/Caddriage.vue";
 import CaddriBox from "@/components/CaddriBox.vue";
 import CorruptedCore from "@/components/CorruptedCore.vue";
@@ -6,7 +7,7 @@ import Francophonering from "@/components/Francophonering.vue";
 import Logo from "@/components/icons/Logo.vue";
 import { onMounted, ref, watch } from "vue";
 
-const folowHeight = ref({ box1: { x: 0, y: 0, width: 0, height: 0 }, box2: { x: 0, y: 0, width: 0, height: 0 }, box3: { x: 0, y: 0, width: 0, height: 0 } })
+const folowHeight = ref({ box1: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box2: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box3: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box4: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 } })
 
 watch(folowHeight, () => {
 	console.log(folowHeight)
@@ -16,15 +17,27 @@ const numberOfPixel = ref(0)
 const seed = ref(0)
 
 onMounted(() => {
-	setInterval(()=>{
-		numberOfPixel.value ++
-		if (numberOfPixel.value > 35) {
-			seed.value ++
+	setInterval(() => {
+		numberOfPixel.value++
+		if (numberOfPixel.value > 50) {
+			seed.value++
 			numberOfPixel.value = 5
 		}
 	}, 50)
 })
+
+function copyBtnCode() {
+	navigator.clipboard.writeText(`<a href="https://simply-ticket.neocities.org/"><img src="https://simply-ticket.neocities.org/button.gif" /></a>`).then(
+  function () {
+	console.log('succes')
+  },
+  function () {
+	console.log('succes')
+  },
+);
+}
 </script>
+
 
 <template>
 	<div>
@@ -32,21 +45,27 @@ onMounted(() => {
 	</div>
 	<div class="position-relative">
 		<div>
-			<CaddriBox id="box-1" :position="{ x: 1, y: 1, width: 10, height: 1 }"
+			<CaddriBox id="box-1" :position="{ x: 1, y: 1, width: 7, height: 1 }"
 				:position-mobile="{ x: 1, y: 1, width: 4, height: 1 }"
 				@update-height="(data) => { folowHeight.box1 = data }">
 				<div class="center">
 					<h1>The fuck is that ?</h1>
 				</div>
-				<CorruptedCore
-					:pixel-size="25"
-					center-top="50%"
-					center-left="45%"
-					:radius="8"
-					:number-of-pixel="numberOfPixel"
-					:seed="seed"
-				/>
+				<CorruptedCore class="z-999" :pixel-size="25" center-top="50%" center-left="45%" :radius="8"
+					:number-of-pixel="numberOfPixel" :seed="seed" />
 			</CaddriBox>
+
+			<CaddriBox id="box-1" :position="{ x: 9, y: 1, width: 2, height: 1 }"
+				:position-mobile="{ x: 1, y: 1, width: 4, height: 1 }">
+				<div class="center">
+					<p>Get my btn</p>
+					<img src="/button.gif" class="logo-button" sizes="" />
+					<Button variant="secondary" :height="25" :width="125" @click="copyBtnCode" id="copy-btn">copy code</Button>
+				</div>
+			</CaddriBox>
+
+
+
 
 			<CaddriBox id="box-2" class="p-2"
 				:position="{ x: 1, y: folowHeight.box1.height + folowHeight.box1.x + 1, width: 7, height: 5, fitContent: true }"
@@ -99,11 +118,40 @@ onMounted(() => {
 			</CaddriBox>
 
 			<CaddriBox id="box-3" :position="{ x: 9, y: 3, height: folowHeight.box2.height, width: 2 }"
-				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }">
+				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }"
+				@update-height="(data) => { folowHeight.box3 = data }">
 				<div class="d-flex c-bold justify-content-center text-center">
 					Imagin there will be button and links here
 				</div>
 				<Francophonering />
+			</CaddriBox>
+		</div>
+		<div>
+			<CaddriBox id="box-4"
+				:position="{ x: 1, y: folowHeight.box2.totalHeight + 1, height: 2, width: 4, fitContent: true }"
+				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }"
+				@update-height="(data) => { folowHeight.box4 = data }">
+				<div>
+					<h3 class="p-2">Things i want to talk about here</h3>
+					<ul>
+						<li>Open source smart home and sensor i build for cheap</li>
+						<li>Devlomment an code cool technologies</li>
+						<li>Decentralized infrastructures</li>
+					</ul>
+				</div>
+			</CaddriBox>
+			<CaddriBox id="box-5"
+				:position="{ x: 6, y: folowHeight.box2.totalHeight + 1, height: folowHeight.box4.height, width: 5, }"
+				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }">
+				<div>
+					<h3 class="p-2">Next things to implement</h3>
+					<ul>
+						<li>Join the francophone ring</li>
+						<li>Add more yberpunk and glitched effect</li>
+						<li>A new page about my diy projects </li>
+						<li>Collet some button of sites i like</li>
+					</ul>
+				</div>
 			</CaddriBox>
 		</div>
 
@@ -126,5 +174,13 @@ onMounted(() => {
 	min-height: 100%;
 	min-width: 100%;
 	margin: 0;
+}
+
+.logo-button {
+	width: 40%;
+}
+
+#copy-btn {
+	width: 75%;
 }
 </style>

@@ -67,7 +67,7 @@ function start() {
 					:seed="13513"
 				/>
 			</div>
-			<Button :text="btnTxt" @click="start" :disabled="disable" />
+			<Button :text="btnTxt" @click="start" :disabled="disable"><span class="z-1 c-bold text-2xl mt-1">{{ btnTxt }}</span></Button>
 		</div>
 		<div id="log-container" class="w-25 p-3 position-absolute bottom-0 end-0">
 			oui

@@ -4,11 +4,17 @@ import { ref } from 'vue';
 const props = withDefaults(
 
 	defineProps<{
-		text: string;
+		text?: string;
 		disabled?: boolean;
+		variant?: 'primary' | 'secondary';
+		height?: number
+		width?: number 
   }>(),
 	{
-		disabled: false
+		disabled: false,
+		variant: 'primary',
+		height: 50,
+		width: 200,
 	}
 )
 
@@ -18,16 +24,16 @@ const emit = defineEmits(['click'])
 
 <template>
 	<button class="btn-parallelo position-relative" :disabled="props.disabled" @click="emit('click');">
-		<div class="position-relative d-flex align-items-center justify-content-center">
-			<span class="z-1 c-bold text-2xl mt-1">{{ props.text }}</span>
+		<div class="position-relative d-flex align-items-center justify-content-center z-1">
+			<slot></slot>
 		</div>
 
-		<svg class="" width="200px" height="50px" viewBox="0 0 200 50">
+		<svg class="" width="200px" height="50px" :viewBox="`0 0 ${props.width} ${props.height}`">
 			<Parallelogram
-				:largeur="200"
-				:hauteur="50"
+				:largeur="props.width"
+				:hauteur="props.height"
 				:angle="20"
-				:color="'var(--btn-fill)'"
+				:color="`var(--color-${props.variant})`"
 			/>
 		</svg>
 	</button>
@@ -37,6 +43,7 @@ const emit = defineEmits(['click'])
 button {
 	cursor: pointer;
 	color: black;
+	font-family: inherit;
 
 	background: none;
 	border: none;
@@ -63,6 +70,6 @@ svg {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none; /* 👈 Laisse les clics passer au <button> */
+  pointer-events: none;
 }
 </style>

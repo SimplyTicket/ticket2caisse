@@ -51,7 +51,7 @@ function onResize() {
 	} else {
 		height.value = position.value.height;
 	}
-	emit('update-height', { height: height.value, x: position.value.x, y: position.value.y, width: position.value.width, totalHeight: height.value + position.value.x })
+	emit('update-height', { height: height.value, x: position.value.x, y: position.value.y, width: position.value.width, totalHeight: height.value + position.value.y })
 }
 
 onMounted(async () => {
