@@ -4,7 +4,7 @@ import { nextTick, onMounted, onUnmounted, ref } from "vue";
 const props = withDefaults(
 	defineProps<{
 		position: { x: number; y: number; width: number; height: number, fitContent?: boolean | null };
-		positionMobile: { x: number; y: number; width: number; height: number };
+		positionMobile: { x: number; y: number; width: number; height: number, fitContent?: boolean | null};
 		displayDelay?: number
 	}>(),
 	{
@@ -33,7 +33,7 @@ function onResize() {
 	col.value = ScreenWidth.value < 768 ? 7 : 13;
 	spacing.value = ScreenWidth.value / (col.value - 1);
 
-	position.value = col.value == 6 ? props.positionMobile : props.position;
+	position.value = col.value == 7 ? props.positionMobile : props.position;
 	width.value = position.value.width;
 
 	if (props.position.fitContent) {

@@ -49,14 +49,14 @@ function copyBtnCode() {
 				:position-mobile="{ x: 1, y: 1, width: 4, height: 1 }"
 				@update-height="(data) => { folowHeight.box1 = data }">
 				<div class="center">
-					<h1>The fuck is that ?</h1>
+					<h1 class="text-xl">The fuck is that ?</h1>
 				</div>
 				<CorruptedCore class="z-999" :pixel-size="25" center-top="50%" center-left="45%" :radius="8"
 					:number-of-pixel="numberOfPixel" :seed="seed" />
 			</CaddriBox>
 
-			<CaddriBox id="box-1" :position="{ x: 9, y: 1, width: 2, height: 1 }"
-				:position-mobile="{ x: 1, y: 1, width: 4, height: 1 }">
+			<CaddriBox id="box-1-1" :position="{ x: 9, y: 1, width: 2, height: 1 }"
+				:position-mobile="{ x: 1, y: -10, width: 1, height: 1 }">
 				<div class="center">
 					<p>Get my btn</p>
 					<img src="/button.gif" class="logo-button" sizes="" />
@@ -68,8 +68,8 @@ function copyBtnCode() {
 
 
 			<CaddriBox id="box-2" class="p-2"
-				:position="{ x: 1, y: folowHeight.box1.height + folowHeight.box1.x + 1, width: 7, height: 5, fitContent: true }"
-				:position-mobile="{ x: 0, y: 3, width: 6, height: 6 }"
+				:position="{ x: 1, y: folowHeight.box1.totalHeight + 1, width: 7, height: 5, fitContent: true }"
+				:position-mobile="{ x: 0, y: folowHeight.box1.totalHeight + 1, width: 6, height: 6, fitContent: true}"
 				@update-height="(data) => { folowHeight.box2 = data }">
 				<div class="p-2 d-flex flex-column justify-content-between h-100 max-h-10-lines">
 					<p class="">
@@ -117,8 +117,8 @@ function copyBtnCode() {
 				</div>
 			</CaddriBox>
 
-			<CaddriBox id="box-3" :position="{ x: 9, y: 3, height: folowHeight.box2.height, width: 2 }"
-				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }"
+			<CaddriBox id="box-3" :position="{ x: 9, y: folowHeight.box1.totalHeight + 1, height: folowHeight.box2.height, width: 2 }"
+				:position-mobile="{ x: 1, y: folowHeight.box2.totalHeight + 1, width: 5, height: 2 }"
 				@update-height="(data) => { folowHeight.box3 = data }">
 				<div class="d-flex c-bold justify-content-center text-center">
 					Imagin there will be button and links here
@@ -129,7 +129,7 @@ function copyBtnCode() {
 		<div>
 			<CaddriBox id="box-4"
 				:position="{ x: 1, y: folowHeight.box2.totalHeight + 1, height: 2, width: 4, fitContent: true }"
-				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }"
+				:position-mobile="{ x: 0, y: folowHeight.box3.totalHeight + 1, width: 5, height: 2, fitContent: true }"
 				@update-height="(data) => { folowHeight.box4 = data }">
 				<div>
 					<h3 class="p-2">Things i want to talk about here</h3>
@@ -142,7 +142,7 @@ function copyBtnCode() {
 			</CaddriBox>
 			<CaddriBox id="box-5"
 				:position="{ x: 6, y: folowHeight.box2.totalHeight + 1, height: folowHeight.box4.height, width: 5, }"
-				:position-mobile="{ x: 1, y: 10, width: 4, height: 2 }">
+				:position-mobile="{ x: 1, y: folowHeight.box4.totalHeight, width: 5, height: 2, fitContent: true }">
 				<div>
 					<h3 class="p-2">Next things to implement</h3>
 					<ul>
