@@ -54,7 +54,7 @@ onMounted(async () => {
   await nextTick();
   setTimeout(() => {
     cellVisible.value = 1;
-  }, 500);
+  }, 100);
 });
 
 onUnmounted(() => {

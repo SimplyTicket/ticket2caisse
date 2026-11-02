@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
+import { nextTick, onMounted, onUnmounted, ref } from "vue";
 
 const props = withDefaults(
 	defineProps<{
 		position: { x: number; y: number; width: number; height: number, fitContent?: boolean | null };
 		positionMobile: { x: number; y: number; width: number; height: number };
+		displayDelay?: number
 	}>(),
-	{},
+	{
+		displayDelay: 1000
+	},
 );
 
 // 1. Use window.innerWidth directly (Logical CSS pixels)
@@ -19,6 +22,7 @@ const blockRef = ref<HTMLElement | null>(null);
 const width = ref();
 const height = ref();
 const position = ref(props.position);
+const isDisplayed = ref(0)
 function onResize() {
 	ScreenWidth.value = window.innerWidth;
 	col.value = ScreenWidth.value < 768 ? 7 : 13;
@@ -45,9 +49,13 @@ function onResize() {
 
 }
 
-onMounted(() => {
+onMounted(async () => {
 	window.addEventListener("resize", onResize);
 	onResize()
+	await nextTick();
+	setTimeout(() => {
+		isDisplayed.value = 1;
+	}, props.displayDelay);
 });
 
 onUnmounted(() => {
@@ -63,6 +71,7 @@ onResize();
 		marginLeft: `${position.x * spacing - 3}px`,
 		width: `${width * spacing + 6.4}px`,
 		height: `${height * spacing + 6.4}px`,
+		clipPath: `inset(0 ${isDisplayed ? 0 : 100}% ${isDisplayed ? 0 : 100}% 0)`
 	}">
 		<div class="content" ref="blockRef">
 			<slot></slot>
@@ -75,6 +84,9 @@ onResize();
 	position: absolute;
 	background-color: var(--color-primary);
 	padding: 6px;
+	clip-path: inset(0 100% 100% 0);
+	transition-duration: 700ms;
+	transition-property: clip-path;
 
 }
 
