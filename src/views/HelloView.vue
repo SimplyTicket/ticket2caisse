@@ -112,10 +112,9 @@ onMounted(() => {
 				@update-height="(data) => { folowHeight.box3 = data }">
 				
 				<div class="d-flex c-bold justify-content-center text-center">
-					Buttons
+					Ring(s)
 				</div>
-				<div class="d-felex justify-content-center align-content-center text-center">
-
+				<div class="d-felex justify-content-center align-content-center text-center pt-2">
 					<Francophonering />
 				</div>
 			</CaddriBox>
@@ -140,10 +139,10 @@ onMounted(() => {
 				<div>
 					<h3 class="p-2">Next things to implement</h3>
 					<ul>
-						<li>Join the francophone ring</li>
-						<li>Add more yberpunk and glitched effect</li>
+						<li>Add more cyberpunk and glitched effect</li>
 						<li>A new page about my diy projects </li>
-						<li>Collet some button of sites i like</li>
+						<li>Collet some button of sites i like (maybe we could be neighbour :3)</li>
+						<li>An update page mayBe ?</li>
 					</ul>
 				</div>
 			</CaddriBox>

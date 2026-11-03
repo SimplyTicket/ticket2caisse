@@ -21,3 +21,9 @@ onMounted(() => {
 <template>
   <div id="francophonering"></div>
 </template>
+
+<style lang="css">
+#francophonering {
+  transform: scale(1.3);
+}
+</style>
