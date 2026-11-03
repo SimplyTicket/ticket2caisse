@@ -311,3 +311,12 @@ body {
   color: black;
 }
 
+.text-vertical {
+	writing-mode:sideways-lr;
+	text-orientation: mixed;
+}
+
+.text-vertical-rl {
+	writing-mode:sideways-rl;
+	text-orientation: mixed;
+}
