@@ -19,9 +19,5 @@ onMounted(() => {
 </script>
 
 <template>
-<div id='francophonering'>
-  <script type="text/javascript" src="https://francophonering.neocities.org/onionring-variables.js"></script>
-  <script type="text/javascript" src="https://francophonering.neocities.org/francophonering_button.js"></script>
-</div>
-
+  <div id="francophonering"></div>
 </template>
