@@ -66,12 +66,12 @@ onMounted(() => {
 			</CaddriBox>
 
 			<CaddriBox id="box-6" :position="{ x: 1, y: getData(1).totalHeight + 1, width: 7, height: 1 }"
-				:position-mobile="{ x: 0, y: getData(1).totalHeight + 1, width: 6, height: 6, fitContent: true }"
+				:position-mobile="{ x: 0, y: getData(1).totalHeight + 1, width: 6, height: 1, fitContent: true }"
 				@update-height="(data) => { updateData(6, data) }">
 				<div class="d-flex h-100 justify-content-between">
 					<div class="d-flex h-100 ">
 						<span class="text-vertical text-center c-bold">Links</span>
-						<div class="d-flex flex-column justify-content-around">
+						<div class="btn-holder d-flex flex-column justify-content-around">
 							<a href="https://neocities.org/site/simply-ticket">
 								<img src="/images/btn/neocities-pink.gif" alt="">
 							</a>
@@ -81,7 +81,7 @@ onMounted(() => {
 						</div>
 					</div>
 					<div class="d-flex h-100">
-						<div class="d-flex flex-column flex-wrap gap-1 justify-content-center">
+						<div class="btn-holder d-flex flex-column flex-wrap gap-1 justify-content-center">
 							<img src="/images/btn/263gggk.gif" />
 							<img src="/images/btn/aperture_labs.jpg" />
 							<img src="/images/btn/button25.gif" />
@@ -107,7 +107,7 @@ onMounted(() => {
 
 			<CaddriBox id="box-2" class="p-2"
 				:position="{ x: 1, y: getData(6).totalHeight + 1, width: 7, height: 4, fitContent: true }"
-				:position-mobile="{ x: 0, y: getData(1).totalHeight + 1, width: 6, height: 6, fitContent: true }"
+				:position-mobile="{ x: 0, y: getData(6).totalHeight + 1, width: 6, height: 3, fitContent: true }"
 				@update-height="(data) => { updateData(2, data) }">
 				<div class="p-2 d-flex flex-column justify-content-between h-100 max-h-10-lines">
 					<p class="">
@@ -234,4 +234,8 @@ onMounted(() => {
 }
 
 #core {}
+
+.btn-holder img:hover {
+	transform: scale(1.5);
+}
 </style>
