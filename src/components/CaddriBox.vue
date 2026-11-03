@@ -44,9 +44,8 @@ function onResize() {
 
 
 		const minHeight = element.scrollHeight
-		console.log(Math.trunc(minHeight / spacing.value) + 1)
-		height.value = Math.trunc(minHeight / spacing.value) + 1
-		console.log(height.value)
+		// Plus grand entre auto fit ou auto height
+		height.value = Math.max(Math.trunc(minHeight / spacing.value) + 1, position.value.height)
 
 	} else {
 		height.value = position.value.height;
@@ -56,13 +55,15 @@ function onResize() {
 
 onMounted(async () => {
 	window.addEventListener("resize", onResize);
-	onResize()
 	await nextTick();
 	setTimeout(() => {
 		isDisplayed.value = 1;
 		onResize()
 
 	}, props.displayDelay);
+	setTimeout(() => {
+		onResize()
+	}, props.displayDelay + 20)
 });
 
 onUnmounted(() => {

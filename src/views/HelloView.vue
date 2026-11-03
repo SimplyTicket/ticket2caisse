@@ -2,13 +2,14 @@
 import Button from "@/components/Button.vue";
 import Caddriage from "@/components/Caddriage.vue";
 import CaddriBox from "@/components/CaddriBox.vue";
+import CaddriContainer from "@/components/CaddriContainer.vue";
 import CorruptedCore from "@/components/CorruptedCore.vue";
 import Francophonering from "@/components/Francophonering.vue";
 import GetMyBtn from "@/components/GetMyBtn.vue";
 import Logo from "@/components/icons/Logo.vue";
 import { onMounted, ref, watch } from "vue";
 
-const folowHeight = ref({ box1: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box2: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box3: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box4: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 } })
+const folowHeight = ref({ box1: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box2: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box3: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box4: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 }, box5: { x: 0, y: 0, width: 0, height: 0, totalHeight: 0 } })
 
 watch(folowHeight, () => {
 	console.log(folowHeight)
@@ -37,7 +38,8 @@ onMounted(() => {
 			:number-of-pixel="numberOfPixel" :seed="seed" />
 	</div>
 	<div class="position-relative">
-		<div>
+
+		<CaddriContainer>
 			<CaddriBox id="box-1" :position="{ x: 1, y: 1, width: 7, height: 1 }"
 				:position-mobile="{ x: 1, y: 1, width: 4, height: 1 }"
 				@update-height="(data) => { folowHeight.box1 = data }">
@@ -55,7 +57,7 @@ onMounted(() => {
 
 
 			<CaddriBox id="box-2" class="p-2"
-				:position="{ x: 1, y: folowHeight.box1.totalHeight + 1, width: 7, height: 5, fitContent: true }"
+				:position="{ x: 1, y: folowHeight.box1.totalHeight + 1, width: 7, height: 4, fitContent: true }"
 				:position-mobile="{ x: 0, y: folowHeight.box1.totalHeight + 1, width: 6, height: 6, fitContent: true }"
 				@update-height="(data) => { folowHeight.box2 = data }">
 				<div class="p-2 d-flex flex-column justify-content-between h-100 max-h-10-lines">
@@ -108,15 +110,18 @@ onMounted(() => {
 				:position="{ x: 9, y: folowHeight.box1.totalHeight + 1, height: folowHeight.box2.height, width: 2 }"
 				:position-mobile="{ x: 1, y: folowHeight.box2.totalHeight + 1, width: 5, height: 2 }"
 				@update-height="(data) => { folowHeight.box3 = data }">
+				
 				<div class="d-flex c-bold justify-content-center text-center">
-					Imagin there will be button and links here
+					Buttons
 				</div>
-				<Francophonering />
+				<div class="d-felex justify-content-center align-content-center text-center">
+
+					<Francophonering />
+				</div>
 			</CaddriBox>
-		</div>
-		<div>
+
 			<CaddriBox id="box-4"
-				:position="{ x: 1, y: folowHeight.box2.totalHeight + 1, height: 2, width: 4, fitContent: true }"
+				:position="{ x: 1, y: folowHeight.box2.totalHeight + 1, height: folowHeight.box5.height, width: 4, fitContent: true }"
 				:position-mobile="{ x: 0, y: folowHeight.box3.totalHeight + 1, width: 5, height: 2, fitContent: true }"
 				@update-height="(data) => { folowHeight.box4 = data }">
 				<div>
@@ -129,8 +134,9 @@ onMounted(() => {
 				</div>
 			</CaddriBox>
 			<CaddriBox id="box-5"
-				:position="{ x: 6, y: folowHeight.box2.totalHeight + 1, height: folowHeight.box4.height, width: 5, }"
-				:position-mobile="{ x: 1, y: folowHeight.box4.totalHeight, width: 5, height: 2, fitContent: true }">
+				:position="{ x: 6, y: folowHeight.box2.totalHeight + 1, height: folowHeight.box4.height, width: 5, fitContent: true}"
+				:position-mobile="{ x: 1, y: folowHeight.box4.totalHeight, width: 5, height: 2, fitContent: true }"
+				@update-height="(data) => { folowHeight.box5 = data }">
 				<div>
 					<h3 class="p-2">Next things to implement</h3>
 					<ul>
@@ -141,7 +147,8 @@ onMounted(() => {
 					</ul>
 				</div>
 			</CaddriBox>
-		</div>
+		</CaddriContainer>
+
 
 		<Logo size="450px" class="position-absolute top-0 start-0 translate-middle" />
 	</div>
