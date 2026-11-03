@@ -4,6 +4,7 @@ import Caddriage from "@/components/Caddriage.vue";
 import CaddriBox from "@/components/CaddriBox.vue";
 import CorruptedCore from "@/components/CorruptedCore.vue";
 import Francophonering from "@/components/Francophonering.vue";
+import GetMyBtn from "@/components/GetMyBtn.vue";
 import Logo from "@/components/icons/Logo.vue";
 import { onMounted, ref, watch } from "vue";
 
@@ -26,22 +27,14 @@ onMounted(() => {
 	}, 50)
 })
 
-function copyBtnCode() {
-	navigator.clipboard.writeText(`<a href="https://simply-ticket.neocities.org/"><img src="https://simply-ticket.neocities.org/button.gif" /></a>`).then(
-  function () {
-	console.log('succes')
-  },
-  function () {
-	console.log('succes')
-  },
-);
-}
 </script>
 
 
 <template>
 	<div>
 		<Caddriage :thickness="6" />
+		<CorruptedCore class="" id="core" :pixel-size="25" center-top="125px" center-left="125px" :radius="5"
+			:number-of-pixel="numberOfPixel" :seed="seed" />
 	</div>
 	<div class="position-relative">
 		<div>
@@ -51,17 +44,11 @@ function copyBtnCode() {
 				<div class="center">
 					<h1 class="text-xl">The fuck is that ?</h1>
 				</div>
-				<CorruptedCore class="z-999" :pixel-size="25" center-top="50%" center-left="45%" :radius="8"
-					:number-of-pixel="numberOfPixel" :seed="seed" />
 			</CaddriBox>
 
 			<CaddriBox id="box-1-1" :position="{ x: 9, y: 1, width: 2, height: 1 }"
 				:position-mobile="{ x: 1, y: -10, width: 1, height: 1 }">
-				<div class="center">
-					<p>Get my btn</p>
-					<img src="/button.gif" class="logo-button" sizes="" />
-					<Button variant="secondary" :height="25" :width="125" @click="copyBtnCode" id="copy-btn">copy code</Button>
-				</div>
+				<GetMyBtn />
 			</CaddriBox>
 
 
@@ -69,7 +56,7 @@ function copyBtnCode() {
 
 			<CaddriBox id="box-2" class="p-2"
 				:position="{ x: 1, y: folowHeight.box1.totalHeight + 1, width: 7, height: 5, fitContent: true }"
-				:position-mobile="{ x: 0, y: folowHeight.box1.totalHeight + 1, width: 6, height: 6, fitContent: true}"
+				:position-mobile="{ x: 0, y: folowHeight.box1.totalHeight + 1, width: 6, height: 6, fitContent: true }"
 				@update-height="(data) => { folowHeight.box2 = data }">
 				<div class="p-2 d-flex flex-column justify-content-between h-100 max-h-10-lines">
 					<p class="">
@@ -117,7 +104,8 @@ function copyBtnCode() {
 				</div>
 			</CaddriBox>
 
-			<CaddriBox id="box-3" :position="{ x: 9, y: folowHeight.box1.totalHeight + 1, height: folowHeight.box2.height, width: 2 }"
+			<CaddriBox id="box-3"
+				:position="{ x: 9, y: folowHeight.box1.totalHeight + 1, height: folowHeight.box2.height, width: 2 }"
 				:position-mobile="{ x: 1, y: folowHeight.box2.totalHeight + 1, width: 5, height: 2 }"
 				@update-height="(data) => { folowHeight.box3 = data }">
 				<div class="d-flex c-bold justify-content-center text-center">
@@ -180,7 +168,5 @@ function copyBtnCode() {
 	width: 40%;
 }
 
-#copy-btn {
-	width: 75%;
-}
+#core {}
 </style>

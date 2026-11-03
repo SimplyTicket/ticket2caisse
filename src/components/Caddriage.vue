@@ -108,7 +108,7 @@ onUnmounted(() => {
 <style scoped>
 .grid-container {
 	position: absolute;
-	min-height: 130vh;
+	min-height: 101vh;
 	width: 100vw;
 	overflow: hidden;
 	pointer-events: none;

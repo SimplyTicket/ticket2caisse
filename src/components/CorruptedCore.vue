@@ -31,7 +31,7 @@ watch(
 </script>
 
 <template>
-	<div class="container" :style="{top: props.centerTop, left: props.centerLeft} ">
+	<div class="container-pixel" :style="{top: props.centerTop, left: props.centerLeft} ">
 		<div class="holder">
 			<CorruptedPixel
 				v-for="value in numberOfPixel"
@@ -45,7 +45,7 @@ watch(
 </template>
 
 <style lang="css">
-.container {
+.container-pixel {
 	position: absolute;
 }
 
