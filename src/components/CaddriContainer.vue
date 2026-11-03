@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="container" class="grid-container" :style="{ height: height + 'px' }">
-    <slot />
+    <slot></slot>
   </div>
 </template>
 
