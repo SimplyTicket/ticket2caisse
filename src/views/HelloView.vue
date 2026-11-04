@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import Button from "@/components/Button.vue";
-import Caddriage from "@/components/Caddriage.vue";
-import CaddriBox from "@/components/CaddriBox.vue";
-import CaddriContainer from "@/components/CaddriContainer.vue";
+import Caddriage from "@/components/caddri/Caddriage.vue";
+import CaddriBox from "@/components/caddri/CaddriBox.vue";
+import CaddriContainer from "@/components/caddri/CaddriContainer.vue";
 import CorruptedCore from "@/components/CorruptedCore.vue";
 import Francophonering from "@/components/Francophonering.vue";
 import GetMyBtn from "@/components/GetMyBtn.vue";
@@ -80,8 +80,8 @@ onMounted(() => {
 							</a>
 						</div>
 					</div>
-					<div class="d-flex h-100">
-						<div class="btn-holder d-flex flex-column flex-wrap gap-1 justify-content-center">
+					<div class="d-flex h-100" style="width:-webkit-fill-available;">
+						<div class="btn-holder d-flex flex-column flex-wrap gap-1 justify-content-center align-content-end overflow-x-scroll m-2" style="width:-webkit-fill-available;" >
 							<img src="/images/btn/263gggk.gif" />
 							<img src="/images/btn/aperture_labs.jpg" />
 							<img src="/images/btn/button25.gif" />
@@ -235,6 +235,9 @@ onMounted(() => {
 
 #core {}
 
+.btn-holder img {
+	width: 88px;
+}
 .btn-holder img:hover {
 	transform: scale(1.5);
 }
