@@ -46,8 +46,6 @@ onMounted(() => {
 <template>
 	<div>
 		<Caddriage :thickness="6" />
-		<CorruptedCore class="" id="core" :pixel-size="25" center-top="125px" center-left="125px" :radius="5"
-			:number-of-pixel="numberOfPixel" :seed="seed" />
 	</div>
 	<div class="position-relative">
 
@@ -81,7 +79,8 @@ onMounted(() => {
 						</div>
 					</div>
 					<div class="d-flex h-100" style="width:-webkit-fill-available;">
-						<div class="btn-holder d-flex flex-column flex-wrap gap-1 justify-content-center align-content-end overflow-x-scroll m-2" style="width:-webkit-fill-available;" >
+						<div class="btn-holder d-flex flex-column flex-wrap gap-1 justify-content-center align-content-end overflow-x-scroll m-2"
+							style="width:-webkit-fill-available;">
 							<img src="/images/btn/263gggk.gif" />
 							<img src="/images/btn/aperture_labs.jpg" />
 							<img src="/images/btn/button25.gif" />
@@ -109,54 +108,19 @@ onMounted(() => {
 				:position="{ x: 1, y: getData(6).totalHeight + 1, width: 7, height: 4, fitContent: true }"
 				:position-mobile="{ x: 0, y: getData(6).totalHeight + 1, width: 6, height: 3, fitContent: true }"
 				@update-height="(data) => { updateData(2, data) }">
-				<div class="p-2 d-flex flex-column justify-content-between h-100 max-h-10-lines">
-					<p class="">
-						First thing thanks for stopping by, I'm happy someone see this ;-)
-					</p>
-					<div>
-						<p class="pt-2">
-							I'm doing this bc i used to be a developer, but since IA I used to
-							enjoy coding i want to find this back here...
-						</p>
-						<p class="pt-2">
-							And it's feel good to spend some nights code all of this
-						</p>
-						<p class="text-xs">
-							I spend so much time on the little cross here and it was amazing
-						</p>
+				<div class="p-2 d-flex justify-content-between h-100">
+
+					<div class="overflow-hidden h-fit w-fit">
+						<img src="/images/trash.webp" id="trash-img" alt="">
+						<CorruptedCore class="" id="core" :pixel-size="25" center-top="125px" center-left="125px"
+							:radius="5" :number-of-pixel="numberOfPixel" :seed="seed" />
 					</div>
-					<div>
-						<h2 class="pt-3">Technical section</h2>
-						<p class="text-xs">
-							Yes i'm a developer i have to talk about this :3
-						</p>
-					</div>
-					<div>
-						<p class="pt-2">
-							This site is developed with
-							<span class="c-bold">vue.js</span> nice framework and beginner
-							friendly
-						</p>
-						<p class="pt-0">
-							And for css i'm using a stripdown version of bootstrap for
-							spacing, flex utilities like this
-						</p>
-						<p>
-							I try to make this site responcive but it's harder than i planned
-						</p>
-					</div>
-					<div>
-						<p>
-							As for AI usage you might guess from above i don't use it all of
-							this comes form my head :3, in case i do use it it's a local llm
-							running on my mac
-						</p>
-					</div>
+					<h2>Hi and wellcom on Average trash</h2>
 				</div>
 			</CaddriBox>
 
 			<CaddriBox id="box-3"
-				:position="{ x: 9, y: getData(1).totalHeight + 1, height: getData(2).height + getData(6).height +1, width: 2 }"
+				:position="{ x: 9, y: getData(1).totalHeight + 1, height: getData(2).height + getData(6).height + 1, width: 2 }"
 				:position-mobile="{ x: 1, y: getData(2).totalHeight + 1, width: 5, height: 2 }"
 				@update-height="(data) => { updateData(3, data) }">
 
@@ -174,6 +138,12 @@ onMounted(() => {
 				</div>
 				<div class="text-xs text-center">
 					Here no other pages yet :/
+				</div>
+				<div id="nav" class="d-flex c-bold justify-content-center text-center pb-2">
+					Friend(s)
+				</div>
+				<div class="text-xs text-center">
+					<a href="https://takedoor.neocities.org/"><img src="https://takedoor.neocities.org/button-neocities.gif" /></a>
 				</div>
 
 			</CaddriBox>
@@ -233,11 +203,20 @@ onMounted(() => {
 	width: 40%;
 }
 
-#core {}
+#trash-img {
+	max-width: 40%;
+	/* your desired cap */
+	max-height: 25lh;
+	/* your desired cap */
+	width: fit-content;
+	height: fit-content;
+	object-fit: contain;
+}
 
 .btn-holder img {
 	width: 88px;
 }
+
 .btn-holder img:hover {
 	transform: scale(1.5);
 }
