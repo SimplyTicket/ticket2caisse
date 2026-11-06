@@ -63,7 +63,7 @@ onMounted(() => {
 				<GetMyBtn />
 			</CaddriBox>
 
-			<CaddriBox id="box-6" :position="{ x: 1, y: getData(1).totalHeight + 1, width: 7, height: 1 }"
+			<CaddriBox id="box-6" class="border-top-0 border-end-0 border-start-0 border-secondary border-3" :position="{ x: 1, y: getData(1).totalHeight + 1, width: 7, height: 1 }"
 				:position-mobile="{ x: 0, y: getData(1).totalHeight + 1, width: 6, height: 1, fitContent: true }"
 				@update-height="(data) => { updateData(6, data) }">
 				<div class="d-flex h-100 justify-content-between">
@@ -79,20 +79,22 @@ onMounted(() => {
 						</div>
 					</div>
 					<div class="d-flex h-100" style="width:-webkit-fill-available;">
-						<div class="btn-holder d-flex flex-column flex-wrap gap-1 justify-content-center align-content-end overflow-x-scroll m-2"
+						<div class="btn-holder d-flex flex-column flex-wrap gap-1 justify-content-center align-content-end  ms-2 p-2"
 							style="width:-webkit-fill-available;">
-							<img src="/images/btn/263gggk.gif" />
-							<img src="/images/btn/aperture_labs.jpg" />
-							<img src="/images/btn/button25.gif" />
-							<img src="/images/btn/cyberdog.gif" />
-							<img src="/images/btn/github.png" />
-							<img src="/images/btn/home-assistant.gif" />
-							<img src="/images/btn/made_with_macintosh~black.gif" />
-							<img src="/images/btn/neocities-pink.gif" />
-							<img src="/images/btn/right_to_repair_01.jpg" />
-							<img src="/images/btn/this_site_is_certified_100_percent_cookie_free.gif" />
-							<img src="/images/btn/transrats.gif" />
-							<img src="/images/btn/twopaws.png" />
+							<div class="overflow-x-scroll d-flex flex-column justify-content-center flex-wrap gap-1">
+								<img src="/images/btn/263gggk.gif" />
+								<img src="/images/btn/aperture_labs.jpg" />
+								<img src="/images/btn/button25.gif" />
+								<img src="/images/btn/cyberdog.gif" />
+								<img src="/images/btn/github.png" />
+								<img src="/images/btn/home-assistant.gif" />
+								<img src="/images/btn/made_with_macintosh~black.gif" />
+								<img src="/images/btn/neocities-pink.gif" />
+								<img src="/images/btn/right_to_repair_01.jpg" />
+								<img src="/images/btn/this_site_is_certified_100_percent_cookie_free.gif" />
+								<img src="/images/btn/transrats.gif" />
+								<img src="/images/btn/twopaws.png" />
+							</div>
 						</div>
 						<span class="text-vertical-rl text-center c-bold">Button</span>
 
@@ -105,7 +107,7 @@ onMounted(() => {
 
 
 			<CaddriBox id="box-2" class="p-2"
-				:position="{ x: 1, y: getData(6).totalHeight + 1, width: 7, height: 3, fitContent: true }"
+				:position="{ x: 1, y: getData(6).totalHeight , width: 7, height: 3, fitContent: true }"
 				:position-mobile="{ x: 0, y: getData(6).totalHeight + 1, width: 6, height: 3, fitContent: true }"
 				@update-height="(data) => { updateData(2, data) }">
 				<div class="">
@@ -130,7 +132,7 @@ onMounted(() => {
 			</CaddriBox>
 
 			<CaddriBox id="box-3"
-				:position="{ x: 9, y: getData(1).totalHeight + 1, height: getData(2).height + getData(6).height + 1, width: 2 }"
+				:position="{ x: 9, y: getData(1).totalHeight + 1, height: getData(2).height + getData(6).height, width: 2 }"
 				:position-mobile="{ x: 1, y: getData(2).totalHeight + 1, width: 5, height: 2 }"
 				@update-height="(data) => { updateData(3, data) }">
 
