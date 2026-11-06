@@ -20,32 +20,27 @@
 
 @font-face {
 	font-family: "Closeness-Outline-Filled";
-	src: url("../assets/closeness/Closeness-Outline-Filled.ttf")
-		format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Filled.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "Closeness-Outline-Filled-Italic";
-	src: url("../assets/closeness/Closeness-Outline-Filled-Italic.ttf")
-		format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Filled-Italic.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "Closeness-Outline-Gradient";
-	src: url("../assets/closeness/Closeness-Outline-Gradient.ttf")
-		format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Gradient.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "Closeness-Outline-Gradient-Italic";
-	src: url("../assets/closeness/Closeness-Outline-Gradient-Italic.ttf")
-		format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Gradient-Italic.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "Closeness-Outline-Italic";
-	src: url("../assets/closeness/Closeness-Outline-Italic.ttf")
-		format("truetype");
+	src: url("../assets/closeness/Closeness-Outline-Italic.ttf") format("truetype");
 }
 
 /* color palette from <https://github.com/vuejs/theme> */
@@ -108,9 +103,8 @@
 	--dark-color-secondary-mute: #8c2879;
 
 	/* Secondary = pink/magenta → 500 est du hot pink pur, très néon */
-	--light-color-secondary: var(
-		--color-secondary-shades-400
-	); /* #ba1277 : lisible sur clair */
+	--light-color-secondary: var(--color-secondary-shades-400);
+	/* #ba1277 : lisible sur clair */
 
 
 	/* ── NEW: generic light/dark for all semantic colors ── */
@@ -157,21 +151,22 @@
 
 /* ── Dark ── */
 /* @media (prefers-color-scheme: dark) { */
-	:root {
-		--color-background: var(--dark-color-background);
-		--color-background-soft: var(--dark-color-background-soft);
-		--color-background-mute: var(--dark-color-background-mute);
+:root {
+	--color-background: var(--dark-color-background);
+	--color-background-soft: var(--dark-color-background-soft);
+	--color-background-mute: var(--dark-color-background-mute);
 
-		--color-primary: var(--dark-color-primary);
-		--color-secondary: var(--dark-color-secondary);
-		--color-primary-mute: var(--dark-color-primary-mute);
+	--color-primary: var(--dark-color-primary);
+	--color-secondary: var(--dark-color-secondary);
+	--color-primary-mute: var(--dark-color-primary-mute);
 
-		--color-border: var(--dark-color-border);
-		--color-border-hover: var(--dark-color-border-hover);
+	--color-border: var(--dark-color-border);
+	--color-border-hover: var(--dark-color-border-hover);
 
-		--color-heading: var(--dark-color-heading);
-		--color-text: var(--dark-color-text);
-	}
+	--color-heading: var(--dark-color-heading);
+	--color-text: var(--dark-color-text);
+}
+
 /* } */
 
 *,
@@ -215,6 +210,7 @@ body {
 		-apple-system,
 		sans-serif;
 }
+
 .c-bold-italic {
 	font-family:
 		"Closeness-Bold-Italic",
@@ -231,6 +227,7 @@ body {
 		-apple-system,
 		sans-serif;
 }
+
 .c-outline-filled {
 	font-family:
 		"Closeness-Outline-Filled",
@@ -238,6 +235,7 @@ body {
 		-apple-system,
 		sans-serif;
 }
+
 .c-outline-italic {
 	font-family:
 		"Closeness-Outline-Italic",
@@ -254,6 +252,7 @@ body {
 		-apple-system,
 		sans-serif;
 }
+
 .c-outline-gradient-italic {
 	font-family:
 		"Closeness-Outline-Gradient-Italic",
@@ -266,45 +265,54 @@ body {
 	font-size: 0.75rem;
 	line-height: 1.25;
 }
+
 .text-sm {
 	font-size: 0.875rem;
 	line-height: 1.5;
 }
+
 .text-md {
 	font-size: 1rem;
 	line-height: 1.5;
 }
+
 .text-lg {
 	font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
 	line-height: 1.5;
 }
+
 .text-xl {
 	font-size: clamp(1.5rem, 1.1rem + 0.75vw, 1.75rem);
 	line-height: 1.4285714286;
 }
+
 .text-2xl {
 	font-size: clamp(1.75rem, 1.3rem + 1vw, 2rem);
 	line-height: 1.3333333333;
 }
+
 .text-3xl {
 	font-size: clamp(2rem, 1.5rem + 1.875vw, 2.5rem);
 	line-height: 1.2;
 }
+
 .text-4xl {
 	font-size: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
 	line-height: 1.1;
 }
+
 .text-5xl {
 	font-size: clamp(3rem, 2rem + 5vw, 4rem);
 	line-height: 1.1;
 }
+
 .text-6xl {
 	font-size: clamp(3.75rem, 2.5rem + 6.25vw, 5rem);
 	line-height: 1;
 }
 
 .fg-contrast-primary {
-  color: black;
+	color: black;
 }
 
 .text-color-secondary {
@@ -324,15 +332,29 @@ body {
 }
 
 .text-vertical {
-	writing-mode:sideways-lr;
+	writing-mode: sideways-lr;
 	text-orientation: mixed;
 }
 
 .text-vertical-rl {
-	writing-mode:sideways-rl;
+	writing-mode: sideways-rl;
 	text-orientation: mixed;
 }
 
 .h-fit {
 	height: fit-content;
+}
+
+.w-fit {
+	width: fit-content;
+}
+
+.border-primary {
+	border-color: var(--color-primary);
+	border-style: solid;
+}
+
+.border-secondary {
+	border-color: var(--color-secondary);
+	border-style: solid;
 }

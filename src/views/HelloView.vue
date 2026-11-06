@@ -33,11 +33,11 @@ function getData(id: number): Box {
 onMounted(() => {
 	setInterval(() => {
 		numberOfPixel.value++
-		if (numberOfPixel.value > 50) {
+		if (numberOfPixel.value > 100) {
 			seed.value++
-			numberOfPixel.value = 5
+			numberOfPixel.value = 20
 		}
-	}, 50)
+	}, 20)
 })
 
 </script>
@@ -105,17 +105,27 @@ onMounted(() => {
 
 
 			<CaddriBox id="box-2" class="p-2"
-				:position="{ x: 1, y: getData(6).totalHeight + 1, width: 7, height: 4, fitContent: true }"
+				:position="{ x: 1, y: getData(6).totalHeight + 1, width: 7, height: 3, fitContent: true }"
 				:position-mobile="{ x: 0, y: getData(6).totalHeight + 1, width: 6, height: 3, fitContent: true }"
 				@update-height="(data) => { updateData(2, data) }">
-				<div class="p-2 d-flex justify-content-between h-100">
+				<div class="">
 
-					<div class="overflow-hidden h-fit w-fit">
-						<img src="/images/trash.webp" id="trash-img" alt="">
-						<CorruptedCore class="" id="core" :pixel-size="25" center-top="125px" center-left="125px"
-							:radius="5" :number-of-pixel="numberOfPixel" :seed="seed" />
+					<div id="img-container" class="overflow-hidden position-relative me-2 mb-2">
+						<img src="/images/trash.webp" id="trash-img" alt="" class="border-secondary border-5">
+						<CorruptedCore class="" id="core" :pixel-size="15" center-top="50%" center-left="50%"
+							:radius="12" :number-of-pixel="numberOfPixel" :seed="seed" />
 					</div>
-					<h2>Hi and wellcom on Average trash</h2>
+					<h2>Me</h2>
+					<p>I'm just an avg thing</p>
+					<p class="c-bold pt-2">Why all of this :</p>
+					<p>Just want to think about somthing else</p>
+					<p class="c-bold pt-2">The fuck ? </p>
+					<p>I have a partner i love, a job I enjoy, wet i'm still fucking lost</p>
+					<p>Just m'y place to express that idk</p>
+					<p class="c-bold pt-2">The mess</p>
+					<p>I've been messed up when i was a kid, all of this is toring me into pices rn</p>
+
+					
 				</div>
 			</CaddriBox>
 
@@ -203,12 +213,15 @@ onMounted(() => {
 	width: 40%;
 }
 
+#img-container {
+	max-width: 35%;
+	/* your desired cap */
+	max-height: 20lh;
+	float: left;
+}
+
 #trash-img {
-	max-width: 40%;
-	/* your desired cap */
-	max-height: 25lh;
-	/* your desired cap */
-	width: fit-content;
+	width: 100%;
 	height: fit-content;
 	object-fit: contain;
 }

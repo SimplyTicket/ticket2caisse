@@ -51,6 +51,5 @@ watch(
 
 .holder {
 	position: relative;
-	z-index: 999;
 }
 </style>
