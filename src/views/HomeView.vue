@@ -6,6 +6,7 @@ import Corrupted from "@/components/CorruptedPixel.vue";
 import CorruptedCore from "@/components/CorruptedCore.vue";
 import CorruptedPixel from "@/components/CorruptedPixel.vue";
 import router from "@/router/index.ts";
+import SpaceCore from "@/components/SpaceCore.vue";
 
 const btnTxt = ref("START");
 const disable = ref(false);
@@ -33,11 +34,12 @@ function start() {
 
 <template>
 	<main>
-		<div class="position-relative">
+		<div class="position-absolute">
 			<Logo
 				size="450px"
 				class="position-absolute top-0 start-0 translate-middle"
 			/>
+			<SpaceCore/>
 		</div>
 		<div class="center">
 			<CorruptedPixel
@@ -77,14 +79,13 @@ function start() {
 
 <style lang="css" scoped>
 .center {
-	position: absolute;
 	top: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-height: 100%;
-	min-width: 100%;
+	min-height: 100vh;
+	min-width: 100wh;
 	margin: 0;
 }
 
